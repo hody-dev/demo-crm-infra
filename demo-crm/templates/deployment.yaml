@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "demo-crm.fullname" . }}
+  name: {{ include "demo-crm.name" . }}
   labels:
     {{- include "demo-crm.labels" . | nindent 4 }}
 spec:
@@ -28,9 +28,9 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         envFrom:
         - configMapRef:
-            name: {{ include "demo-crm.fullname" . }}-conf
+            name: {{ include "demo-crm.name" . }}-conf
         - secretRef:
-            name: {{ include "demo-crm.fullname" . }}-db-auth
+            name: {{ include "demo-crm.name" . }}-db-auth
         ports:
         - name: app
           containerPort: 3000

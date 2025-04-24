@@ -1,0 +1,11 @@
+nameOverride: "manual-demo-crm"
+
+replicaCount: 1
+
+app:
+  config:
+    logLevel: debug
+    mongo:
+      auth:
+        # List of MongoDB replicaset hosts
+        hosts: [mongodb-0.mongodb-headless]

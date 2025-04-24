@@ -1,0 +1,22 @@
+nameOverride: "declerative-demo-crm"
+
+replicaCount: 3
+
+app:
+  config:
+    mongo:
+      auth:
+        password: declerativepassword
+      hosts:
+      - mongodb-0.mongodb-headless
+      - mongodb-1.mongodb-headless
+      - mongodb-2.mongodb-headless
+    mongoCleanup:
+      enabled: true
+      schedule: "0 0 * * *"
+      restartPolicy: Never
+      mongoVersion: 5.0.8
+
+mongodb:
+  auth:
+    rootPassword: "declerativepassword"

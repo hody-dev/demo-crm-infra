@@ -8,23 +8,15 @@ app:
       auth:
         username: root
         password: passwordisnotagoodpassword
-      # List of MongםDB replicaset hosts; or one host
-      # Example 1:
-      #   hosts: [mongodb]
-      # Example 2:
-      #   hosts:
-      #   - mongodb-0
-      #   - mongodb-1
-      #   - mongodb-2
       hosts:
       - mongodb-0.mongodb-headless
       - mongodb-1.mongodb-headless
       - mongodb-2.mongodb-headless
       # Overrides the database port who's default is 27017
-      port:
+      port: 27017
     mongoCleanup:
       enabled: false
-      schedule: 0 0 * * *
+      schedule: 0 0 * * * # At midnight
       restartPolicy: OnFailure
       # Version of MongoDB to use for cleanup, default is latest
       mongoVersion:
@@ -38,7 +30,6 @@ image:
   pullSecrets: []
 
 nameOverride: ""
-fullnameOverride: ""
 
 podAnnotations: {}
 
@@ -65,13 +56,13 @@ service:
   port: 3000
 
 # @resources default empty; see example values below
-resources: {}
-  # limits:
-  #   cpu: 150m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 50m
-  #   memory: 32Mi
+resources:
+  limits:
+    cpu: 150m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 32Mi
 
 # Values for MongoDB child/dependency chart
 mongodb:
