@@ -1,0 +1,12 @@
+global:
+  # -- Set the global logging level. One of: `debug`, `info`, `warn` or `error`
+  logging:
+    level: error
+configs:
+  # -- Timeout to discover if a new manifests version got published to the repository
+  cm:
+    timeout.reconciliation: 10s
+  params:
+    # -- Run server without TLS
+    ## NOTE: This value should be set when you generate params by other means as it changes ports used by ingress template.
+    server.insecure: true

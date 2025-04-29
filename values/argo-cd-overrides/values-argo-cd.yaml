@@ -1,7 +1,0 @@
-configs:
-  timeout.reconciliation: 180s
-  params:
-    ## Server properties
-    # -- Run server without TLS
-    ## NOTE: This value should be set when you generate params by other means as it changes ports used by ingress template.
-    server.insecure: true
